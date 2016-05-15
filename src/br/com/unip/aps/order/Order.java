@@ -9,13 +9,14 @@ import br.com.unip.aps.order.method.Selection;
 
 public class Order{
 
-	public void returnOrder(int[] vet){
+	public double[] returnOrder(int[] vet){
 		//Salva tamanho do vetor na variavel fim
 		int i, fim = vet.length;
 		long timeInitial = 0;
 		long timeEnd = 0;
-		double timeInserton, timeSelection, timeMerge;
+		double timeInsertion, timeSelection, timeMerge;
 		int[] retorno;
+		double[] generalTime = new double[10];
 		
 		/*Chamada Insertion Sort*/
 			//Marca o tempo de inicio
@@ -27,7 +28,8 @@ public class Order{
 			
 			//Marca o tempo de fim
 			timeEnd = System.currentTimeMillis();
-			timeInserton = timeEnd - timeInitial;
+			timeInsertion = timeEnd - timeInitial;
+			generalTime[0] = timeInsertion;
 			
 			//Escreve os numeros ordenados no console
 			System.out.println("\nOrdenação por Insertion sort\n");
@@ -49,6 +51,7 @@ public class Order{
 			//Marca o tempo de fim
 			timeEnd = System.currentTimeMillis();
 			timeSelection = timeEnd - timeInitial;
+			generalTime[1] = timeSelection;
 					
 			//Escreve os numeros ordenados no console
 			System.out.println("Ordenação por Selection sort\n");
@@ -70,6 +73,7 @@ public class Order{
 			//Marca o tempo de fim
 			timeEnd = System.currentTimeMillis();
 			timeMerge = timeEnd - timeInitial;
+			generalTime[2] = timeMerge;
 			
 			//Escreve os numeros ordenados no console
 			System.out.println("Ordenação por Merge sort\n");
@@ -80,9 +84,10 @@ public class Order{
 			
 		//Apresenta o tempo que cada metodo de ordenação
 		JOptionPane.showMessageDialog(null,
-									"\nOrdenação por Insertion sort "+timeInserton/1000+" segundos" +
+									"\nOrdenação por Insertion sort "+timeInsertion/1000+" segundos" +
 									"\nOrdenação por Selection sort "+timeSelection/1000+" segundos"+
 									"\nOrdenação por Merge sort "+timeMerge/1000+" segundos\n");
 		
+		return generalTime;
 	}
 }

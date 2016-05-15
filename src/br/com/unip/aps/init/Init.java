@@ -1,13 +1,17 @@
 package br.com.unip.aps.init;
 
 import java.io.File;
+import java.io.IOException;
 
 import javax.swing.JFileChooser;
 import javax.swing.JOptionPane;
 import javax.swing.filechooser.FileFilter;
 import javax.swing.filechooser.FileNameExtensionFilter;
 
+import org.jfree.ui.RefineryUtilities;
+
 import br.com.unip.aps.csv.CSVReader;
+import br.com.unip.aps.graph.Graph;
 import br.com.unip.aps.order.Order;
 import br.com.unip.aps.random.Generate;
 
@@ -34,11 +38,16 @@ public class Init {
 		return numeros;
 	}
 	
-	public static void main(String[] args) {
+	public static void main(String[] args) throws IOException {
 
 		boolean isOut = false;
 		Generate nv = new Generate();
 		int[] r = null;
+		double[] time = null;
+		
+		//Cria um diretório para a exportação de arquivos dentro da pasta raiz do projeto
+		String current = System.getProperty("user.dir") +"/files";
+		new File(current).mkdir(); 
 		
 		while(!isOut){
 			//Menu
@@ -47,8 +56,8 @@ public class Init {
 					+ "\n2 - Importar CSV "
 					+ "\n3 - Gerar valores aleatorios com repetição"
 					+ "\n4 - Gerar valores aleatórios sem repetição"
-					+ "\n5 - Ordernar"
-					+ "\n6 - Exportar Arquivo"
+					+ "\n5 - Ordernar (Necessário valores carregados)"
+					+ "\n6 - Exportar Arquivo e gerar gráfico (Necessário ordenação)"
 					+ "\n9 - Para sair" ));
 			
 			//Opções do Menu e suas respectivas chamadas
@@ -77,13 +86,22 @@ public class Init {
 			case 5:
 				if(r != null){
 					Order o = new Order();
-					o.returnOrder(r);
+					time = o.returnOrder(r);
 				}else {
 					JOptionPane.showMessageDialog(null, "Vetor não carregado");
 				}
 				break;
 			case 6:
-				JOptionPane.showMessageDialog(null, "Em construção");
+				if(time != null){
+					Graph chart = new Graph("Gráfico de tempo por algoritmo de ordenação", "Tempo de ordenação para "+size+" registros", time);
+					chart.pack( );        
+					RefineryUtilities.centerFrameOnScreen(chart);        
+					chart.setVisible( true ); 
+					JOptionPane.showMessageDialog(null, "Dados ordenados e gráfico exportado para '../files'");
+				}
+				else{
+					JOptionPane.showMessageDialog(null, "A ordenação ainda não foi efetuada!");
+				}
 				break;
 			case 9:
 				JOptionPane.showMessageDialog(null, "Até mais!");
