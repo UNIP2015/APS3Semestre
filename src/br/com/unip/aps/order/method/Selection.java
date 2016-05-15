@@ -1,4 +1,4 @@
-package br.com.unip.aps.order;
+package br.com.unip.aps.order.method;
 
 public class Selection {
 	//Metodo de ordenação tipo Selection sort

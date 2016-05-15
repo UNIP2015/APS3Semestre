@@ -3,6 +3,10 @@ package br.com.unip.aps.order;
 
 import javax.swing.JOptionPane;
 
+import br.com.unip.aps.order.method.Insertion;
+import br.com.unip.aps.order.method.Merge;
+import br.com.unip.aps.order.method.Selection;
+
 public class Order{
 
 	public void returnOrder(int[] vet){

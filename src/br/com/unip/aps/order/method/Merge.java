@@ -1,4 +1,4 @@
-package br.com.unip.aps.order;
+package br.com.unip.aps.order.method;
 
 public class Merge {
 	
