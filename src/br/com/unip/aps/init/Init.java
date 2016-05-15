@@ -42,7 +42,8 @@ public class Init {
 		
 		while(!isOut){
 			//Menu
-			int option = Integer.parseInt(JOptionPane.showInputDialog("1 - Definir a quantidade de valores (Atual: " + size+")" 
+			int option = Integer.parseInt(JOptionPane.showInputDialog(
+					"1 - Definir a quantidade de valores (Atual: " + size+")" 
 					+ "\n2 - Importar CSV "
 					+ "\n3 - Gerar valores aleatorios com repetição"
 					+ "\n4 - Gerar valores aleatórios sem repetição"
@@ -61,14 +62,14 @@ public class Init {
 				break;
 			case 3:
 				r = nv.generateRandomNumbersNoVerify(size);
-				System.out.print("\nNúmeros Gerados: ");
+				System.out.print("\nNúmeros Gerados: \n");
 				for(int i : r){
 					System.out.println(i);
 				}
 				break;
 			case 4:
 				r = nv.generateRandomNumbers(size);
-				System.out.print("\nNúmeros Gerados: ");
+				System.out.print("\nNúmeros Gerados: \n");
 				for(int i : r){
 					System.out.println(i);
 				}
