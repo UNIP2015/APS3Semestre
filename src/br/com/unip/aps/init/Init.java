@@ -13,7 +13,7 @@ import br.com.unip.aps.random.Generate;
 
 public class Init {
 	public static JFileChooser jf;
-	public static int size = 10000;
+	public static int size = 100000;
 	
 	//Metodo de chamada para importação do CSV
 	protected static int[] doCSVAction(){
@@ -61,14 +61,14 @@ public class Init {
 				break;
 			case 3:
 				r = nv.generateRandomNumbersNoVerify(size);
-				System.out.print("\n");
+				System.out.print("\nNúmeros Gerados: ");
 				for(int i : r){
 					System.out.println(i);
 				}
 				break;
 			case 4:
 				r = nv.generateRandomNumbers(size);
-				System.out.print("\n");
+				System.out.print("\nNúmeros Gerados: ");
 				for(int i : r){
 					System.out.println(i);
 				}
