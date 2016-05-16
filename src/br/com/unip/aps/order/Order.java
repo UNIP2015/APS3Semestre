@@ -70,7 +70,7 @@ public class Order{
 			//Escreve os numeros ordenados no console
 			System.out.println("Ordenação por Selection sort\n");
 			for (i = 0; i < retorno.length; i++) {
-				System.out.println(" "+retorno[i]);
+				System.out.println(" "+retorno[i]); 
 			}		
 		/*Chamada Insertion Sort*/
 		

@@ -123,7 +123,7 @@ public class Chart {
 		for(String coluna : this.colunas){
 			//Cria a primeira linha
 			
-			
+			 
 			//O counter é usado para indicar em qual coluna vai ser inserido
 			//Eg. Coluna na 1º posição, Coluna na 2º Posição
 			rowhead.createCell(counter).setCellValue(coluna);

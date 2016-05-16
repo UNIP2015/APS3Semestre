@@ -31,7 +31,7 @@ public class Graph extends ApplicationFrame{
       setContentPane(chartPanel);
       int width = 800; /* Width of the image */
       int height = 600; /* Height of the image */ 
-      File BarChart = new File( "files/Graph.jpg" ); 
+      File BarChart = new File( "files/Graph.jpg" );  
       ChartUtilities.saveChartAsJPEG( BarChart , barChart , width , height );
 
    }

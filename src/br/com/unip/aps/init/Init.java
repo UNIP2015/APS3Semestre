@@ -74,7 +74,7 @@ public class Init {
 				break;
 			case 3:
 				r = nv.generateRandomNumbersNoVerify(size);
-				originalVetor = r.clone();
+				originalVetor = r.clone(); 
 				System.out.print("\nNúmeros Gerados: \n");
 				for(int i : r){
 					System.out.println(i);

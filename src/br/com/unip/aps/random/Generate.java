@@ -57,7 +57,7 @@ public class Generate {
 		return randomNumbers;
 	}
 	
-	public int[] generateRandomNumbersNoVerify(int size){
+	public int[] generateRandomNumbersNoVerify(int size){ 
 		//Criada a classe Random para gerar numeros aleatorios
 		Random random = new Random();
 		
