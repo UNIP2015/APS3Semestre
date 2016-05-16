@@ -26,7 +26,7 @@ public class Generate {
 		}
 		
 		while(i < randomNumbers.length){
-			int anyNumber = random.nextInt(limit);
+			int anyNumber = random.nextInt(limit * 2);
 			
 			//Indica se foi encontrado um numero no vetor 
 			boolean hasFoundANumber = false;
@@ -79,7 +79,7 @@ public class Generate {
 		}
 		
 		while(i < randomNumbers.length){
-			int anyNumber = random.nextInt(limit);
+			int anyNumber = random.nextInt(limit * 2);
 			i++;
 			//Adiciono no vetor usando o contador desse vetor
 			randomNumbers[counter] = anyNumber;

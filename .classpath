@@ -10,5 +10,7 @@
 	<classpathentry kind="lib" path="/home/guima/workspace/APS3Sem/lib/apache-poi/xmlbeans-xmlpublic-2.4.0.jar"/>
 	<classpathentry kind="lib" path="/home/guima/workspace/APS3Sem/lib/apache-poi/xmlbeans-2.4.0.jar"/>
 	<classpathentry kind="lib" path="/home/guima/workspace/APS3Sem/lib/apache-poi/commons-codec-1.10.jar"/>
+	<classpathentry kind="lib" path="/home/guima/workspace/APS3Sem/lib/jfreechart-1.0.1/lib/jcommon-1.0.0.jar"/>
+	<classpathentry kind="lib" path="/home/guima/workspace/APS3Sem/lib/jfreechart-1.0.1/lib/jfreechart-1.0.1.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>

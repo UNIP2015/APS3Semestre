@@ -27,7 +27,7 @@ public class Chart {
 	private int[][] linhas;
 	private File file;
 	private String image;
-	
+	 
 	private HSSFWorkbook workbook;
 	private HSSFSheet sheet;
 
@@ -44,6 +44,11 @@ public class Chart {
 			this.colunas = labels;
 			this.linhas = values;
 			this.image = image;
+			
+			File imageFile = new File(image);
+			if(!imageFile.exists()){
+				throw new IOException("Imagem não encontrada");
+			}
 			
 			
 			//Verifica se o arquivo existe => path
