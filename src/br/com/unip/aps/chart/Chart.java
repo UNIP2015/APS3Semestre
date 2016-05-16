@@ -17,6 +17,11 @@ import org.apache.poi.ss.usermodel.CreationHelper;
 import org.apache.poi.ss.usermodel.Drawing;
 import org.apache.poi.ss.usermodel.Sheet;
 import org.apache.poi.ss.usermodel.Workbook;
+import org.apache.poi.xssf.usermodel.XSSFClientAnchor;
+import org.apache.poi.xssf.usermodel.XSSFDrawing;
+import org.apache.poi.xssf.usermodel.XSSFPicture;
+import org.apache.poi.xssf.usermodel.XSSFRow;
+import org.apache.poi.xssf.usermodel.XSSFSheet;
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 import org.apache.poi.ss.usermodel.Picture;
 import org.apache.poi.util.IOUtils;
@@ -28,8 +33,8 @@ public class Chart {
 	private File file;
 	private String image;
 	 
-	private HSSFWorkbook workbook;
-	private HSSFSheet sheet;
+	private XSSFWorkbook workbook;
+	private XSSFSheet sheet;
 
 	
 	/**
@@ -57,8 +62,8 @@ public class Chart {
 				this.file.createNewFile();
 			}
 				
-			workbook = new HSSFWorkbook();
-//			workbook = new XSSFWorkbook();
+//			workbook = new HSSFWorkbook();
+			workbook = new XSSFWorkbook();
 			
 			sheet = workbook.createSheet("Primeira TAB");
 		
@@ -77,14 +82,14 @@ public class Chart {
          /* Close Input Stream */
          my_banner_image.close();                
          /* Create the drawing container */
-         HSSFPatriarch drawing = sheet.createDrawingPatriarch();
+         XSSFDrawing drawing = sheet.createDrawingPatriarch();
          /* Create an anchor point */
-         ClientAnchor my_anchor = new HSSFClientAnchor();
+         ClientAnchor my_anchor = new XSSFClientAnchor();
          /* Define top left corner, and we can resize picture suitable from there */
          my_anchor.setCol1(this.colunas.length + 2);
          my_anchor.setRow1(0);           
          /* Invoke createPicture and pass the anchor point and ID */
-         HSSFPicture  my_picture = drawing.createPicture(my_anchor, my_picture_id);
+         XSSFPicture  my_picture = drawing.createPicture(my_anchor, my_picture_id);
          /* Call resize method, which resizes the image */
          my_picture.resize();            
          
@@ -119,7 +124,7 @@ public class Chart {
 	private void generateColumns(){
 		int counter = 0;
 		//Constroi as colunas
-		HSSFRow rowhead = sheet.createRow(0);
+		XSSFRow rowhead = sheet.createRow(0);
 		for(String coluna : this.colunas){
 			//Cria a primeira linha
 			
@@ -134,7 +139,7 @@ public class Chart {
 	private void generateRows(){
 		int rowCounter = 1;
 		for(int[] linha : this.linhas ){ //Retorna uma linha
-			HSSFRow row = sheet.createRow((short)rowCounter);//Crio uma linha da planilha
+			XSSFRow row = sheet.createRow(rowCounter);//Crio uma linha da planilha
 			rowCounter++;
 			
 			int cellCounter = 0;

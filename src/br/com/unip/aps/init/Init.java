@@ -136,6 +136,7 @@ public class Init {
 						JOptionPane.showMessageDialog(null, "A ordenação ainda não foi efetuada!");
 					}
 				}catch(Exception e){
+					e.printStackTrace();
 					JOptionPane.showMessageDialog(null, e.getMessage());
 				}
 				break;
