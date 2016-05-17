@@ -19,7 +19,7 @@ import org.apache.poi.util.IOUtils;
 public class Chart {
 	
 	private String[] colunas;
-	private int[][] linhas;
+	private long[][] linhas;
 	private File file;
 	private String image;
 	 
@@ -34,7 +34,7 @@ public class Chart {
 	 * @param String[] values
 	 * @throws IOException 
 	 */
-	public Chart(String path,String[] labels, int[][] values,String image) throws IOException{
+	public Chart(String path,String[] labels, long[][] values,String image) throws IOException{
 		
 			this.colunas = labels;
 			this.linhas = values;
@@ -113,12 +113,12 @@ public class Chart {
 	
 	private void generateRows(){
 		int rowCounter = 1;
-		for(int[] linha : this.linhas ){ //Retorna uma linha
+		for(long[] linha : this.linhas ){ //Retorna uma linha
 			XSSFRow row = sheet.createRow(rowCounter);//Crio uma linha da planilha
 			rowCounter++;
 			
 			int cellCounter = 0;
-			for(int value : linha){
+			for(long value : linha){
 				row.createCell(cellCounter).setCellValue(value);
 				cellCounter++;
 			}
