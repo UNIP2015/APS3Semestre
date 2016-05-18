@@ -56,6 +56,7 @@ public class Init {
 				break;
 			case 3:
 				time = null;
+				System.out.print("\nGerando vetor... \n");
 				r = nv.generateRandomNumbersNoVerify(size);
 				originalVetor = r.clone(); 
 				System.out.print("\nNúmeros Gerados: \n");
@@ -65,6 +66,7 @@ public class Init {
 				break;
 			case 4:
 				time = null;
+				System.out.print("\nGerando vetor... \n");
 				r = nv.generateRandomNumbers(size);
 				originalVetor = r.clone();
 				System.out.print("\nNúmeros Gerados: \n");
