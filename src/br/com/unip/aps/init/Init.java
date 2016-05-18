@@ -41,9 +41,8 @@ public class Init {
 					+ "\n3 - Gerar valores aleatorios com repetição"
 					+ "\n4 - Gerar valores aleatórios sem repetição"
 					+ "\n5 - Ordernar (Necessário valores carregados)"
-					+ "\n6 - Exportar arquivo** e gerar gráfico (Necessário ordenação)"
-					+ "\n9 - Para sair"
-					+ "\n\n**Limite para exportação excel é de 32.000 por limitação do próprio formato[Excel 2003]"));
+					+ "\n6 - Exportar arquivo e gerar gráfico (Necessário ordenação)"
+					+ "\n9 - Para sair"));
 			
 			//Opções do Menu e suas respectivas chamadas
 			switch (option) {
