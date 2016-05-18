@@ -88,25 +88,23 @@ public class Init {
 						RefineryUtilities.centerFrameOnScreen(chart);        
 						chart.setVisible( true ); 
 	
-						//if(size <= 32000){
-							//Monto as labels para o excel
-							String[] colunas = {"Original","Insertion Sort","Selection Sort","Merge Sort"};
-						
-							//Crio uma tabela com o numero de items no vetor ordenado, e 3 colunas
-							long[][] linhas = new long[size][4]; 
-	
-							//Monto as linhas
-							for(long linha = 0; linha < size; linha++){
-								System.out.println(originalVetor[(int) linha]);
-								linhas[(int) linha][0] = originalVetor[(int) linha];
-								linhas[(int) linha][1] = o.insertSort[(int) linha];
-								linhas[(int) linha][2] = o.selectionSort[(int) linha];
-								linhas[(int) linha][3] = o.mergeSort[(int) linha];
-							}
-						
-							Chart grafico = new Chart("files/Relatorio.xls", colunas, linhas, "files/Graph.jpg");
-							grafico.export();
-						//}
+						//Monto as labels para o excel
+						String[] colunas = {"Original","Insertion Sort","Selection Sort","Merge Sort"};
+					
+						//Crio uma tabela com o numero de items no vetor ordenado, e 3 colunas
+						long[][] linhas = new long[size][4]; 
+
+						//Monto as linhas
+						for(long linha = 0; linha < size; linha++){
+							System.out.println(originalVetor[(int) linha]);
+							linhas[(int) linha][0] = originalVetor[(int) linha];
+							linhas[(int) linha][1] = o.insertSort[(int) linha];
+							linhas[(int) linha][2] = o.selectionSort[(int) linha];
+							linhas[(int) linha][3] = o.mergeSort[(int) linha];
+						}
+					
+						Chart grafico = new Chart("files/Relatorio.xls", colunas, linhas, "files/Graph.jpg");
+						grafico.export();
 						
 						JOptionPane.showMessageDialog(null, "Arquivos exportados para '../files'");
 					}
