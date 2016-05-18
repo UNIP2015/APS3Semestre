@@ -6,16 +6,7 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
 
-import org.apache.poi.hssf.usermodel.HSSFClientAnchor;
-import org.apache.poi.hssf.usermodel.HSSFPatriarch;
-import org.apache.poi.hssf.usermodel.HSSFPicture;
-import org.apache.poi.hssf.usermodel.HSSFRow;
-import org.apache.poi.hssf.usermodel.HSSFSheet;
-import org.apache.poi.hssf.usermodel.HSSFWorkbook;
 import org.apache.poi.ss.usermodel.ClientAnchor;
-import org.apache.poi.ss.usermodel.CreationHelper;
-import org.apache.poi.ss.usermodel.Drawing;
-import org.apache.poi.ss.usermodel.Sheet;
 import org.apache.poi.ss.usermodel.Workbook;
 import org.apache.poi.xssf.usermodel.XSSFClientAnchor;
 import org.apache.poi.xssf.usermodel.XSSFDrawing;
@@ -23,7 +14,6 @@ import org.apache.poi.xssf.usermodel.XSSFPicture;
 import org.apache.poi.xssf.usermodel.XSSFRow;
 import org.apache.poi.xssf.usermodel.XSSFSheet;
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
-import org.apache.poi.ss.usermodel.Picture;
 import org.apache.poi.util.IOUtils;
 
 public class Chart {
@@ -62,7 +52,6 @@ public class Chart {
 				this.file.createNewFile();
 			}
 				
-//			workbook = new HSSFWorkbook();
 			workbook = new XSSFWorkbook();
 			
 			sheet = workbook.createSheet("Primeira TAB");
@@ -72,35 +61,25 @@ public class Chart {
 	
 	private void generateImage() throws IOException {
 		 
-               
-         /* Read the input image into InputStream */
          InputStream my_banner_image = new FileInputStream(this.image);
-         /* Convert Image to byte array */
          byte[] bytes = IOUtils.toByteArray(my_banner_image);
-         /* Add Picture to workbook and get a index for the picture */
          int my_picture_id = workbook.addPicture(bytes, Workbook.PICTURE_TYPE_JPEG);
-         /* Close Input Stream */
-         my_banner_image.close();                
-         /* Create the drawing container */
+         my_banner_image.close();            
          XSSFDrawing drawing = sheet.createDrawingPatriarch();
-         /* Create an anchor point */
          ClientAnchor my_anchor = new XSSFClientAnchor();
-         /* Define top left corner, and we can resize picture suitable from there */
          my_anchor.setCol1(this.colunas.length + 2);
          my_anchor.setRow1(0);           
-         /* Invoke createPicture and pass the anchor point and ID */
          XSSFPicture  my_picture = drawing.createPicture(my_anchor, my_picture_id);
-         /* Call resize method, which resizes the image */
          my_picture.resize();            
          
 	}
 	
 	public void export(){
 		try {
-//			Gera as colunas
+			//Gera as colunas
 			generateColumns();
 	        
-//	        Gera os valores de cada coluna	
+			//Gera os valores de cada coluna	
 			generateRows();
 			  
 			//Gera Imagem
@@ -112,12 +91,10 @@ public class Chart {
 			workbook.write(fileOut);
 			
 	        fileOut.close();
-	        System.out.println("Your excel file has been generated!");
+	        System.out.println("\nExcel gerado com sucesso!\n");
 		} catch (IOException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
-		}
-		
+		}		
 		
 	}
 	
@@ -126,9 +103,7 @@ public class Chart {
 		//Constroi as colunas
 		XSSFRow rowhead = sheet.createRow(0);
 		for(String coluna : this.colunas){
-			//Cria a primeira linha
-			
-			 
+			//Cria a primeira linha	 
 			//O counter é usado para indicar em qual coluna vai ser inserido
 			//Eg. Coluna na 1º posição, Coluna na 2º Posição
 			rowhead.createCell(counter).setCellValue(coluna);
@@ -147,20 +122,6 @@ public class Chart {
 				row.createCell(cellCounter).setCellValue(value);
 				cellCounter++;
 			}
-		}
-		
-        
-	}
-	
-
-	
-	
-	public static void main(String[] args) {
-		
-		
-		
-		
-		
-		
+		}      
 	}
 }

@@ -20,36 +20,18 @@ public class Init {
 	public static JFileChooser jf;
 	public static int size = 100000;
 	private static int[] originalVetor; 
-	//Metodo de chamada para importação do CSV
-	protected static int[] doCSVAction(){
-		jf = new JFileChooser();
-		int[] numeros = new int[0];
-		
-		FileFilter filter = new FileNameExtensionFilter("CSV", "csv");
-		jf.setFileFilter(filter);
-		int retorno = jf.showOpenDialog(null);
-		if(retorno == JFileChooser.APPROVE_OPTION){
-			String splitSeparator = JOptionPane.showInputDialog("Qual o separador do CSV? ");
-			File fileSelected = jf.getSelectedFile();
-			CSVReader csvReader = new CSVReader(fileSelected.getAbsolutePath(),splitSeparator);
-			numeros = csvReader.convert();
-			
-		}
-		
-		return numeros;
-	}
-	
+
 	public static void main(String[] args) throws IOException {
 
 		boolean isOut = false;
 		Generate nv = new Generate();
+		Order o = new Order();
 		int[] r = null;
 		double[] time = null;
 		originalVetor = new int[size];
 		//Cria um diretório para a exportação de arquivos dentro da pasta raiz do projeto
 		String current = System.getProperty("user.dir") +"/files";
 		new File(current).mkdir(); 
-		Order o = new Order();
 		
 		while(!isOut){
 			//Menu
@@ -59,8 +41,9 @@ public class Init {
 					+ "\n3 - Gerar valores aleatorios com repetição"
 					+ "\n4 - Gerar valores aleatórios sem repetição"
 					+ "\n5 - Ordernar (Necessário valores carregados)"
-					+ "\n6 - Exportar Arquivo e gerar gráfico (Necessário ordenação)"
-					+ "\n9 - Para sair" ));
+					+ "\n6 - Exportar arquivo** e gerar gráfico (Necessário ordenação)"
+					+ "\n9 - Para sair"
+					+ "\n\n**Limite para exportação excel é de 32.000 por limitação do próprio formato[Excel 2003]"));
 			
 			//Opções do Menu e suas respectivas chamadas
 			switch (option) {
@@ -73,6 +56,7 @@ public class Init {
 				doCSVAction();
 				break;
 			case 3:
+				time = null;
 				r = nv.generateRandomNumbersNoVerify(size);
 				originalVetor = r.clone(); 
 				System.out.print("\nNúmeros Gerados: \n");
@@ -81,6 +65,7 @@ public class Init {
 				}
 				break;
 			case 4:
+				time = null;
 				r = nv.generateRandomNumbers(size);
 				originalVetor = r.clone();
 				System.out.print("\nNúmeros Gerados: \n");
@@ -90,7 +75,6 @@ public class Init {
 				break;
 			case 5:
 				if(r != null){
-				
 					time = o.returnOrder(r);
 				}else {
 					JOptionPane.showMessageDialog(null, "Vetor não carregado");
@@ -104,33 +88,27 @@ public class Init {
 						RefineryUtilities.centerFrameOnScreen(chart);        
 						chart.setVisible( true ); 
 	
+						if(size <= 32000){
+							//Monto as labels para o excel
+							String[] colunas = {"Original","Insertion Sort","Selection Sort","Merge Sort"};
 						
-						//Monto as labels para o excel
-						String[] colunas = {"Original","Insertion Sort","Selection Sort","Merge Sort"};
-						
-								//Crio uma tabela com o numero de items no vetor ordenado, e 3 colunas
-						int[][] linhas = new int[size][4]; 
+							//Crio uma tabela com o numero de items no vetor ordenado, e 3 colunas
+							int[][] linhas = new int[size][4]; 
 	
-						//Monto as linhas
-						for(int linha = 0; linha < size; linha++){
-							System.out.println(originalVetor[linha]);
-							linhas[linha][0] = originalVetor[linha];
-							linhas[linha][1] = o.insertSort[linha];
-							linhas[linha][2] = o.selectionSort[linha];
-							linhas[linha][3] = o.mergeSort[linha];
-						}
+							//Monto as linhas
+							for(int linha = 0; linha < size; linha++){
+								System.out.println(originalVetor[linha]);
+								linhas[linha][0] = originalVetor[linha];
+								linhas[linha][1] = o.insertSort[linha];
+								linhas[linha][2] = o.selectionSort[linha];
+								linhas[linha][3] = o.mergeSort[linha];
+							}
 						
 							Chart grafico = new Chart("files/Relatorio.xls", colunas, linhas, "files/Graph.jpg");
 							grafico.export();
-							JOptionPane.showMessageDialog(null, "Dados ordenados e gráfico exportado para '../files'");
+						}
 						
-						
-						
-						
-						
-						
-						
-						
+						JOptionPane.showMessageDialog(null, "Arquivos exportados para '../files'");
 					}
 					else{
 						JOptionPane.showMessageDialog(null, "A ordenação ainda não foi efetuada!");
@@ -150,4 +128,23 @@ public class Init {
 			}
 		}
 	}
+	
+	//Metodo de chamada para importação do CSV
+		protected static int[] doCSVAction(){
+			jf = new JFileChooser();
+			int[] numeros = new int[0];
+			
+			FileFilter filter = new FileNameExtensionFilter("CSV", "csv");
+			jf.setFileFilter(filter);
+			int retorno = jf.showOpenDialog(null);
+			if(retorno == JFileChooser.APPROVE_OPTION){
+				String splitSeparator = JOptionPane.showInputDialog("Qual o separador do CSV? ");
+				File fileSelected = jf.getSelectedFile();
+				CSVReader csvReader = new CSVReader(fileSelected.getAbsolutePath(),splitSeparator);
+				numeros = csvReader.convert();
+				
+			}
+			
+			return numeros;
+		}
 }

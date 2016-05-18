@@ -21,7 +21,7 @@ public class Graph extends ApplicationFrame{
       JFreeChart barChart = ChartFactory.createBarChart(
          chartTitle,           
          " ",            
-         "TEMPO EM SEGUNDOS",            
+         "TEMPO",            
          createDataset(time),          
          PlotOrientation.VERTICAL,
          true, true, false);
