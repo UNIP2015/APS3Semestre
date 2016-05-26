@@ -28,7 +28,7 @@ public class Chart {
 
 	
 	/**
-	 * @desc Recebe os valores das colunas e também um vetor com as linhas
+	 * @desc Recebe os valores das colunas e tambem um vetor com as linhas
 	 * @param String caminhoDoArquivo
 	 * @param String[] labels
 	 * @param String[] values
@@ -42,7 +42,7 @@ public class Chart {
 			
 			File imageFile = new File(image);
 			if(!imageFile.exists()){
-				throw new IOException("Imagem não encontrada");
+				throw new IOException("Imagem nao encontrada");
 			}
 			
 			
@@ -54,7 +54,7 @@ public class Chart {
 				
 			workbook = new XSSFWorkbook();
 			
-			sheet = workbook.createSheet("Primeira TAB");
+			sheet = workbook.createSheet("Dados exportados");
 		
 		
 	}
@@ -104,8 +104,8 @@ public class Chart {
 		XSSFRow rowhead = sheet.createRow(0);
 		for(String coluna : this.colunas){
 			//Cria a primeira linha	 
-			//O counter é usado para indicar em qual coluna vai ser inserido
-			//Eg. Coluna na 1º posição, Coluna na 2º Posição
+			//O counter e usado para indicar em qual coluna vai ser inserido
+			//Eg. Coluna na 1 posicao, Coluna na 2 Posicao
 			rowhead.createCell(counter).setCellValue(coluna);
 			counter++;
 		}

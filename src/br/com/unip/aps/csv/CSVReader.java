@@ -21,7 +21,7 @@ public class CSVReader {
 	 * @param String pathCSV
 	 */
 	public CSVReader(String pathCSV ){
-		//Separador padrão do CSV é o ;
+		//Separador padrao do CSV e o ;
 		this(pathCSV,";");
 	}
 	
@@ -39,7 +39,7 @@ public class CSVReader {
 	
 	
 	/**
-	 * @description De acordo com os dados passados no construtor, ele retorno em vetor, os numeros que contém no CSV 
+	 * @description De acordo com os dados passados no construtor, ele retorno em vetor, os numeros que contem no CSV 
 	 * @return int[] numeros
 	 */
 	public int[] convert(){	
@@ -53,11 +53,11 @@ public class CSVReader {
 			//Contador para controlar o indice do vetor que vai guardar os numeros
 			int cont = 0;
 			
-			//Enquanto Houver uma linha, faça o loop
+			//Enquanto houver uma linha, faça o loop
 			while ((line = br.readLine()) != null) {
 				
 				if(cont >= numbers.length){ //Se o indice estourar o tamanho que o vetor suporta, eu paro o loop
-					System.out.println("Vetor Cheio. \nInserido Até a linha " + (cont+1));
+					System.out.println("Vetor Cheio. \nInserido ate a linha " + (cont+1));
 					break;
 				}
 
@@ -65,7 +65,7 @@ public class CSVReader {
 				String[] linha = line.split(cvsSplitBy);
 				
 				//Verifico se foi encontrado um valor na primeira posição,
-				//Caso contrário, retorno -1 como valor n encontrado
+				//Caso contrario, retorno -1 como valor n encontrado
 				
 				String valor = linha[0];
 				valor =  valor != null ? linha[0] : "-1";
@@ -98,7 +98,7 @@ public class CSVReader {
 			e.printStackTrace();
 		} catch (IOException e) {
 			e.printStackTrace();
-		} finally { //Finally é executado mesmo se der erro ou não
+		} finally { //Finally e executado mesmo se der erro ou não
 			//
 			if (br != null) { //Se o aqruivo ainda estiver aberto
 				try {

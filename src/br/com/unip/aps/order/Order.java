@@ -34,7 +34,7 @@ public class Order{
 			//Marca o tempo de inicio
 			timeInitial = System.currentTimeMillis();
 			
-			//Realiza a ordenação com o metodo Insertion Sort
+			//Realiza a ordenacao com o metodo Insertion Sort
 			Insertion ins = new Insertion();
 			retorno = ins.insertion(vet);
 			insertSort = retorno;
@@ -45,7 +45,7 @@ public class Order{
 			generalTime[0] = timeInsertion;
 			
 			//Escreve os numeros ordenados no console
-			System.out.println("\nOrdenação por Insertion sort\n");
+			System.out.println("\nOrdenacao por Insertion sort\n");
 			for (i = 0; i < vet.length; i++) {
 				System.out.println(" "+retorno[i]);
 			}	
@@ -57,7 +57,7 @@ public class Order{
 			//Marca o tempo de inicio
 			timeInitial = System.currentTimeMillis();
 					
-			//Realiza a ordenação com o metodo Selection Sort
+			//Realiza a ordenacao com o metodo Selection Sort
 			Selection sec = new Selection();
 			retorno = sec.selection(vet);
 			selectionSort = retorno;
@@ -68,7 +68,7 @@ public class Order{
 			generalTime[1] = timeSelection;
 					
 			//Escreve os numeros ordenados no console
-			System.out.println("Ordenação por Selection sort\n");
+			System.out.println("Ordenacao por Selection sort\n");
 			for (i = 0; i < retorno.length; i++) {
 				System.out.println(" "+retorno[i]); 
 			}		
@@ -80,7 +80,7 @@ public class Order{
 			//Marca o tempo de inicio
 			timeInitial = System.currentTimeMillis();
 			
-			//Realiza a ordenação com o metodo Merge Sort
+			//Realiza a ordenacao com o metodo Merge Sort
 			Merge mer = new Merge();
 			retorno = mer.merge(vet, 0, fim - 1);
 			mergeSort = retorno;
@@ -91,17 +91,17 @@ public class Order{
 			generalTime[2] = timeMerge;
 			
 			//Escreve os numeros ordenados no console
-			System.out.println("Ordenação por Merge sort\n");
+			System.out.println("Ordenacao por Merge sort\n");
 			for (i = 0; i < retorno.length; i++) {
 				System.out.println(" "+retorno[i]);
 			}
 		/*Chamada Merge Sort*/
 			
-		//Apresenta o tempo que cada metodo de ordenação
+		//Apresenta o tempo que cada metodo de ordenacao
 		JOptionPane.showMessageDialog(null,
-									"\nOrdenação por Insertion sort "+timeInsertion/1000+" segundos" +
-									"\nOrdenação por Selection sort "+timeSelection/1000+" segundos"+
-									"\nOrdenação por Merge sort "+timeMerge/1000+" segundos\n");
+									"\nOrdenacao por Insertion sort "+timeInsertion/1000+" segundos" +
+									"\nOrdenacao por Selection sort "+timeSelection/1000+" segundos"+
+									"\nOrdenacao por Merge sort "+timeMerge/1000+" segundos\n");
 		
 		return generalTime;
 	}

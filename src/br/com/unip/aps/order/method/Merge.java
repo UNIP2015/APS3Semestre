@@ -2,7 +2,7 @@ package br.com.unip.aps.order.method;
 
 public class Merge {
 	
-	//Metodo de ordenação tipo Merge sort
+	//Metodo de ordenacao tipo Merge sort
 	public int[] merge(int[] vet, int inicio, int fim) {
 		int i, j, k;
 		int[] merge = vet;
@@ -15,14 +15,14 @@ public class Merge {
 		//salva na variavel meio o meio do vetor
 		int meio = (inicio + fim) / 2;
 		
-		//chama a função do começo até a metade
+		//chama a funcao do começo ate a metade
 		merge(merge, inicio, meio);
-		//chama a função do meio+1 até o fim
+		//chama a funcao do meio+1 ate o fim
 		merge(merge, meio + 1, fim);
 		
 		//define um vetor A do tamanho meio - inicio +1
 		int[] A = new int[meio - inicio + 1];
-		//define um vetor B que vai de fim até o meio
+		//define um vetor B que vai de fim ate o meio
 		int[] B = new int[fim - meio];
 		
 		//para int igual a 0, enquanto i menor que meio - inicio, i++
@@ -51,23 +51,23 @@ public class Merge {
 					merge[k] = A[i];
 					i++;
 				} 
-				//se não
+				//se nao
 				else {
-					//merge indice k recebe B indice j incrementado após ser usado
+					//merge indice k recebe B indice j incrementado apos ser usado
 					merge[k] = B[j];
 					j++;
 				}
 				
 			} 
-			//se não se i menor que tamanho de A
+			//se nao se i menor que tamanho de A
 			else if (i < A.length) {
-				//merge indice k recebe A indice i incrementado após ser usado
+				//merge indice k recebe A indice i incrementado apos ser usado
 				merge[k] = A[i];
 				i++;
 			} 
-			//se não se j menor que tamanho de B
+			//se nao se j menor que tamanho de B
 			else if (j < B.length) {
-				//merge indice k recebe B indice j incrementado após ser usado
+				//merge indice k recebe B indice j incrementado apos ser usado
 				merge[k] = B[j];
 				j++;
 			}

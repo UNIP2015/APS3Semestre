@@ -45,7 +45,7 @@ public class Generate {
 			if(hasFoundANumber){
 				continue;
 			}else {
-				//Senão, incremento
+				//Se nao, incremento
 				i++;
 				//Adiciono no vetor usando o contador desse vetor
 				randomNumbers[counter] = anyNumber;

@@ -1,7 +1,7 @@
 package br.com.unip.aps.order.method;
 
 public class Insertion {
-	//Metodo de ordenação tipo Insertion sort
+	//Metodo de ordenacao tipo Insertion sort
 	public int[] insertion(int[] vet) {
 		int i, j, aux;
 		int[] insertion = vet;

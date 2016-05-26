@@ -29,7 +29,7 @@ public class Init {
 		int[] r = null;
 		double[] time = null;
 		originalVetor = new int[size];
-		//Cria um diretório para a exportação de arquivos dentro da pasta raiz do projeto
+		//Cria um diretorio para a exportacao de arquivos dentro da pasta raiz do projeto
 		String current = System.getProperty("user.dir") +"/files";
 		new File(current).mkdir(); 
 		
@@ -38,16 +38,16 @@ public class Init {
 			int option = Integer.parseInt(JOptionPane.showInputDialog(
 					"1 - Definir a quantidade de valores (Atual: " + size+")" 
 					+ "\n2 - Importar CSV "
-					+ "\n3 - Gerar valores aleatorios com repetição"
-					+ "\n4 - Gerar valores aleatórios sem repetição"
-					+ "\n5 - Ordernar (Necessário valores carregados)"
-					+ "\n6 - Exportar arquivo e gerar gráfico (Necessário ordenação)"
+					+ "\n3 - Gerar valores aleatorios com repeticao"
+					+ "\n4 - Gerar valores aleatorios sem repeticao"
+					+ "\n5 - Ordernar (Necessario valores carregados)"
+					+ "\n6 - Exportar arquivo e gerar grafico (Necessario ordenacao)"
 					+ "\n9 - Para sair"));
 			
-			//Opções do Menu e suas respectivas chamadas
+			//Opcoes do Menu e suas respectivas chamadas
 			switch (option) {
 			case 1: 
-				String value = JOptionPane.showInputDialog("Digite a quantidade de valores desejado: ");
+				String value = JOptionPane.showInputDialog("Digite a quantidade de valores : ");
 				size = Integer.parseInt(value);	
 				originalVetor = new int[size];
 				break;
@@ -59,7 +59,7 @@ public class Init {
 				System.out.print("\nGerando vetor... \n");
 				r = nv.generateRandomNumbersNoVerify(size);
 				originalVetor = r.clone(); 
-				System.out.print("\nNúmeros Gerados: \n");
+				System.out.print("\nNumeros Gerados: \n");
 				for(int i : r){
 					System.out.println(i);
 				}
@@ -69,7 +69,7 @@ public class Init {
 				System.out.print("\nGerando vetor... \n");
 				r = nv.generateRandomNumbers(size);
 				originalVetor = r.clone();
-				System.out.print("\nNúmeros Gerados: \n");
+				System.out.print("\nNumeros Gerados: \n");
 				for(int i : r){
 					System.out.println(i);
 				}
@@ -78,13 +78,13 @@ public class Init {
 				if(r != null){
 					time = o.returnOrder(r);
 				}else {
-					JOptionPane.showMessageDialog(null, "Vetor não carregado");
+					JOptionPane.showMessageDialog(null, "Vetor nao carregado");
 				}
 				break;
 			case 6:
 				try {
 					if(time != null){
-						Graph chart = new Graph("Gráfico de tempo por algoritmo de ordenação", "Tempo de ordenação para "+size+" registros", time);
+						Graph chart = new Graph("Grafico de tempo por algoritmo de ordenacao", "Tempo de ordenacao para "+size+" registros", time);
 						chart.pack( );        
 						RefineryUtilities.centerFrameOnScreen(chart);        
 						chart.setVisible( true ); 
@@ -110,7 +110,7 @@ public class Init {
 						JOptionPane.showMessageDialog(null, "Arquivos exportados para '../files'");
 					}
 					else{
-						JOptionPane.showMessageDialog(null, "A ordenação ainda não foi efetuada!");
+						JOptionPane.showMessageDialog(null, "A ordenacao ainda nao foi efetuada!");
 					}
 				}catch(Exception e){
 					e.printStackTrace();
@@ -118,11 +118,11 @@ public class Init {
 				}
 				break;
 			case 9:
-				JOptionPane.showMessageDialog(null, "Até mais!");
+				JOptionPane.showMessageDialog(null, "Tchau!");
 				isOut = true;
 				break;
 			default:
-				JOptionPane.showMessageDialog(null, "Opçao invalida!");
+				JOptionPane.showMessageDialog(null, "Opcao invalida!");
 				break;
 			}
 		}

@@ -1,7 +1,7 @@
 package br.com.unip.aps.order.method;
 
 public class Selection {
-	//Metodo de ordenação tipo Selection sort
+	//Metodo de ordenacao tipo Selection sort
 	public int [] selection(int[] vet) {
 	    int min, max, i, j;
 	    int[] selection = vet;

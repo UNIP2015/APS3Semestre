@@ -12,7 +12,7 @@ import org.jfree.data.category.CategoryDataset;
 import org.jfree.data.category.DefaultCategoryDataset; 
 import org.jfree.ui.ApplicationFrame;
 
-//Classe do framework gerador de gráficos
+//Classe do framework gerador de graficos
 public class Graph extends ApplicationFrame{
 	private static final long serialVersionUID = 1L;
 	public Graph(String applicationTitle , String chartTitle, double time[]) throws IOException{
@@ -29,14 +29,14 @@ public class Graph extends ApplicationFrame{
       ChartPanel chartPanel = new ChartPanel( barChart );        
       chartPanel.setPreferredSize(new java.awt.Dimension( 800 , 600 ) );        
       setContentPane(chartPanel);
-      int width = 800; /* Width of the image */
-      int height = 600; /* Height of the image */ 
+      int width = 800; 
+      int height = 600;
       File BarChart = new File( "files/Graph.jpg" );  
       ChartUtilities.saveChartAsJPEG( BarChart , barChart , width , height );
 
    }
 	
-   //Classe com os dados para a criação do gráfico
+   //Classe com os dados para a criacao do grafico
    public CategoryDataset createDataset(double time[]){
 	   
       final String alg = "ALGORITMO";               
